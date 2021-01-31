@@ -1,0 +1,95 @@
+{% extends '!page.html' %}
+
+{% block footer %}
+    <div class="related-pages">
+        {% if next -%}
+            <a class="next-page" href="{{ next.link }}">
+                <div class="page-info">
+                    <div class="context">
+                        <span>{{ _("下一页") }}</span>
+                    </div>
+                    <div class="title">{{ next.title }}</div>
+                </div>
+                <svg>
+                    <use href="#svg-arrow-right"></use>
+                </svg>
+            </a>
+        {%- endif %}
+        {% if prev -%}
+            <a class="prev-page" href="{{ prev.link }}">
+                <svg>
+                    <use href="#svg-arrow-right"></use>
+                </svg>
+                <div class="page-info">
+                    <div class="context">
+                        <span>{{ _("上一页") }}</span>
+                    </div>
+                    {% if prev.link == pathto(master_doc) %}
+                        <div class="title">{{ _("Home") }}</div>
+                    {% else %}
+                        <div class="title">{{ prev.title }}</div>
+                    {% endif %}
+                </div>
+            </a>
+        {%- endif %}
+    </div>
+
+    <div class="related-information" style="text-align: right;">
+        <div>联系我们: <a href="mailto:admin@qiyutech.tech">admin@qiyutech.tech</a> | 版权所有 &#169; {{ copyright }}.</div>
+        <div>
+            <a href="/sitemap.xml">网站地图</a>&nbsp;|&nbsp;
+            <a href="https://beian.miit.gov.cn" target="_blank">津ICP备20005561号-1</a>
+            <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12010602120312" target="_blank">
+                <img src="/_static/sphinx/img/gongan.png" alt="公安">
+                津公网安备 12010602120312 号
+            </a>
+        </div>
+        <div>
+            <img src="/_static/sphinx/img/wx_qr.png" height="128" width="128" alt="wx">
+            <img src="/_static/sphinx/img/python-powered-w.svg" width="200" alt="python">
+        </div>
+    </div>
+
+    <script>
+        (function (d, t) {
+            var BASE_URL = "https://ct.qiyutech.tech";
+            var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+            g.src = BASE_URL + "/packs/js/sdk.js";
+            g.defer = true;
+            g.async = true;
+            s.parentNode.insertBefore(g, s);
+            g.onload = function () {
+                window.chatwootSDK.run({
+                    websiteToken: 'gkryXmcgcNyRPRJXGNDUqriQ',
+                    baseUrl: BASE_URL
+                })
+            }
+        })(document, "script");
+    </script>
+
+
+    {# 百度统计 #}
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6f4d9101c58bf5b79e14bcaf8c4e3ac6";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+    {# Google Analytics #}
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-94Z82BBXNQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-94Z82BBXNQ');
+    </script>
+{% endblock footer %}
+

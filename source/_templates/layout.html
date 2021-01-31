@@ -1,0 +1,69 @@
+{% extends '!layout.html' %}
+
+{% block footer %}
+<div class="footer">
+    <img src="/_static/sphinx/img/wx_qr.png" height="128" alt="wx">
+    <div>联系我们: <a href="mailto:admin@qiyutech.tech">admin@qiyutech.tech</a></div>
+    {% if show_copyright %}版权所有 &copy;{{ copyright }}.{% endif %}
+    {% if theme_show_powered_by|lower == 'true' %}
+    {% if show_copyright %}|{% endif %}
+    由 <a href="http://sphinx-doc.org/">Sphinx {{ sphinx_version }}</a>
+    &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster {{ alabaster_version }}</a> 提供支持
+    {% endif %}
+    <div>
+        <a href="https://beian.miit.gov.cn" target="_blank">津ICP备20005561号-1</a>
+        <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12010602120312" target="_blank">
+            <img src="/_static/sphinx/img/gongan.png" alt="公安">
+            津公网安备 12010602120312 号
+        </a>
+    </div>
+    <div>
+        <img src="/_static/sphinx/img/python-powered-w.svg" width="200" alt="python">
+    </div>
+</div>
+
+
+<script>
+    (function (d, t) {
+        var BASE_URL = "https://ct.qiyutech.tech";
+        var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        g.src = BASE_URL + "/packs/js/sdk.js";
+        g.defer = true;
+        g.async = true;
+        s.parentNode.insertBefore(g, s);
+        g.onload = function () {
+            window.chatwootSDK.run({
+                websiteToken: 'gkryXmcgcNyRPRJXGNDUqriQ',
+                baseUrl: BASE_URL
+            })
+        }
+    })(document, "script");
+</script>
+
+
+<!-- 百度统计 -->
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?06c9b5200cb83cf22bdbc97cda46cebe";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-94Z82BBXNQ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-94Z82BBXNQ');
+</script>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "docs"
+version = "0.1.0"
+description = ""
+authors = ["valbendan <valbendan@hotmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+furo = "*"
+sphinx = "*"
+jieba = "*"
+sphinx-sitemap = "*"
+sphinx-copybutton = "*"
+sphinx-notfound-page = "*"
+# allow image click to full screen
+# https://sphinxcontrib-images.readthedocs.io/en/latest/
+sphinxcontrib-images = "*"
+
+[tool.poetry.dev-dependencies]
+black = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
