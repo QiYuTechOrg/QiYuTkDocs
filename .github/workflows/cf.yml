@@ -33,6 +33,7 @@ jobs:
         with:
           title: Publish to html branch (Never Merge This)
           branch: html
+          base: main
           add-paths: |
             build/html
 
