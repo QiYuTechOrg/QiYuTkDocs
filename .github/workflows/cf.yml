@@ -29,11 +29,12 @@ jobs:
         run: tree build/html
 
       - name: Publish HTML
-        uses: peter-evans/create-pull-request@v3.12.1
+        uses: peter-evans/create-pull-request@v4
         with:
           title: Publish to html branch (Never Merge This)
           branch: html
           base: main
+          draft: true
           add-paths: |
             build/html
 
