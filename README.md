@@ -4,13 +4,9 @@
 
 ## 部署
 
-已经迁移到 CloudFlare Pages
+使用 GitHub Actions 部署到 CloudFlare Pages
 
-```shell
-make clean-build # 构建 HTML 文档
-make copy-to-git # 复制 Git 仓库
-# 提交到 Github CloudFlare Pages 会自动部署
-```
+参见: cf.yml action
 
 ## 网站
 
