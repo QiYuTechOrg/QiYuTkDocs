@@ -1,42 +1,44 @@
 name: Cloudflare Pages Deployment
 
+# r0
+
 on:
-  release:
-    types: [ created ]
+    push:
+        paths:
+            - ".github/workflows/cf.yml"
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+    build:
+        runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v2
+        steps:
+            - uses: actions/checkout@v2
 
-      - name: Set up Python 3.9
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.9
+            - name: Set up Python 3.9
+              uses: actions/setup-python@v2
+              with:
+                  python-version: 3.9
 
-      - name: 安装 Poetry
-        run: pip install poetry
+            - name: 安装 Poetry
+              run: pip install poetry
 
-      - name: 安装 依赖
-        run: poetry install
+            - name: 安装 依赖
+              run: poetry install
 
-      - name: 构建 HTML
-        run: make fast-build
+            - name: 构建 HTML
+              run: make fast-build
 
-      - name: Show Files
-        run: tree build/html
+            - name: Show Files
+              run: tree build/html
 
-      - name: Publish HTML
-        uses: peter-evans/create-pull-request@v4
-        with:
-          title: Publish to html branch (Never Merge This)
-          branch: html
-          base: main
-          draft: true
-          add-paths: |
-            build/html
+            - name: Publish HTML
+              uses: peter-evans/create-pull-request@v4
+              with:
+                  title: Publish to html branch (Never Merge This)
+                  branch: html
+                  draft: true
+                  add-paths: |
+                      build/html
 
-      - name: 部署到 Clouflare Pages
-        run: curl -XPOST ${{ secrets.CF_DEPLOY_URL }}
+            - name: 部署到 Clouflare Pages
+              run: curl -XPOST ${{ secrets.CF_DEPLOY_URL }}

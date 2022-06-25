@@ -3,7 +3,9 @@
     "ms-vscode.makefile-tools",
     "ms-python.python",
     "bungcip.better-toml",
-    "EditorConfig.EditorConfig"
+    "EditorConfig.EditorConfig",
+    "eamodio.gitlens",
+    "redhat.vscode-yaml"
   ],
   "postCreateCommand": "pip install poetry --user && poetry update"
 }
