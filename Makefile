@@ -20,15 +20,9 @@ help:
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 
-clean-build:
+fast-build:
 	make clean
 	make html
-
-copy-to-git:TARGET_DIR=~/QiYuTechDev/QiYuTechOrg/QiYuTechTBK
-copy-to-git:
-	rm -rf build/html/_sources
-	cp -rf build/html/*        $(TARGET_DIR)
-
 
 format:
 	poetry run black source
