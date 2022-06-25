@@ -1,0 +1,9 @@
+{
+  "extensions": [
+    "ms-vscode.makefile-tools",
+    "ms-python.python",
+    "bungcip.better-toml",
+    "EditorConfig.EditorConfig"
+  ],
+  "postCreateCommand": "pip install poetry --user && poetry update"
+}
